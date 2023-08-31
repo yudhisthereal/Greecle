@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">Greecle</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="welcome">Welcome to Greecle</string>
+    <string name="login">Login</string>
+    <string name="logout">Logout</string>
+    <string name="register">Register</string>
+    <string name="signin">Sign in</string>
+    <string name="signup">Sign up</string>
+    <string name="usernameOrEmail">Username or Email</string>
+    <string name="password">Password</string>
+    <string name="placeholderUsernameOrEmail">Enter Your Username or Email</string>
+    <string name="placeholderPassword">Enter Your Password</string>
+    <string name="noAccount">No Account? Sign Up</string>
+    <string name="forgotPass">Forgot Password</string>
 </resources>
