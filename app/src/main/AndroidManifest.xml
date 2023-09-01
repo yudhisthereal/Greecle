@@ -27,7 +27,10 @@
             android:name=".RegistrationSuccessActivity"
             android:exported="false" />
         <activity
-            android:name=".TipsActivity"
+            android:name=".HomeActivity"
+            android:exported="true" />
+        <activity
+            android:name=".TopicDetailActivity"
             android:exported="false" />
         <activity
             android:name=".ArticleDetailActivity"
