@@ -2,11 +2,12 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootMain"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_bg"
     tools:context=".MainActivity"
-    android:paddingHorizontal="32dp"
+    android:paddingHorizontal="24dp"
     android:paddingVertical="64dp">
 
     <androidx.fragment.app.FragmentContainerView
