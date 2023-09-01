@@ -12,6 +12,15 @@
         android:theme="@style/Theme.Greecle"
         tools:targetApi="31">
         <activity
+            android:name=".DetailRewardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HistoryActivity"
+            android:exported="true" />
+        <activity
+            android:name=".NotificationActivity"
+            android:exported="false" />
+        <activity
             android:name=".RegistrationSuccessActivity"
             android:exported="false" />
         <activity

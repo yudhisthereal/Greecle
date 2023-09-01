@@ -3,12 +3,15 @@ package com.ggroup.greecle
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SnapHelper
 
 class HomeActivity : AppCompatActivity() {
+
+    private lateinit var notif:ConstraintLayout
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var itemList: ArrayList<Item>
@@ -26,6 +29,11 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
+        notif = findViewById(R.id.notif)
+        notif.setOnClickListener {
+            val intent = Intent(this,NotificationActivity::class.java)
+            startActivity(intent)
+        }
         init()
     }
 
