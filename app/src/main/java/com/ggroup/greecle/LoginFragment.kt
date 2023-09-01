@@ -1,5 +1,6 @@
 package com.ggroup.greecle
 
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.Typeface
 import android.os.Bundle
@@ -70,8 +71,10 @@ class LoginFragment : Fragment() {
 
         val forgotPass: TextView = view.findViewById(R.id.forgotPassword)
         forgotPass.setOnClickListener{
-            Toast.makeText(activity, "Forgot Pass", Toast.LENGTH_SHORT).show()
+            val intent = Intent(activity, ForgotPasswordActivity::class.java)
+            activity?.startActivity(intent)
         }
+
         return view
     }
 }
