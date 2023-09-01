@@ -12,6 +12,18 @@
         android:theme="@style/Theme.Greecle"
         tools:targetApi="31">
         <activity
+            android:name=".PassResetEmailSentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PasswordResetSuccessActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UserLocationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ForgotPasswordActivity"
+            android:exported="false" />
+        <activity
             android:name=".RegistrationSuccessActivity"
             android:exported="false" />
         <activity
