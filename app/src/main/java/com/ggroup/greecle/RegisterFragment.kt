@@ -16,11 +16,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.constraintlayout.widget.ConstraintLayout
+import kotlin.math.roundToInt
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
@@ -28,16 +26,8 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class RegisterFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
     }
 
     override fun onCreateView(
@@ -53,7 +43,14 @@ class RegisterFragment : Fragment() {
 
         val clickableSpanSignup: ClickableSpan = object : ClickableSpan() {
             override fun onClick(p0: View) {
-                Toast.makeText(activity, "Sign In", Toast.LENGTH_SHORT).show()
+                val signupFragment = LoginFragment()
+                val transaction = fragmentManager?.beginTransaction()
+                transaction?.replace(R.id.fragmentContainerView, signupFragment)?.commit()
+
+                val rootLayout = activity?.findViewById<ConstraintLayout>(R.id.rootMain)
+                val paddingHorizontal = (24 * resources.displayMetrics.density).roundToInt()
+                val paddingVertical = (64 * resources.displayMetrics.density).roundToInt()
+                rootLayout?.setPadding(paddingHorizontal, paddingVertical, paddingHorizontal, paddingVertical)
             }
 
             override fun updateDrawState(ds: TextPaint) {
@@ -62,32 +59,12 @@ class RegisterFragment : Fragment() {
             }
         }
 
-        ss.setSpan(clickableSpanSignup, 17, 23, SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE)
-        ss.setSpan(StyleSpan(Typeface.BOLD), 17, 23, SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE)
-        ss.setSpan(ForegroundColorSpan(Color.parseColor("#3C9C3D")), 17, 23, SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE)
+        ss.setSpan(clickableSpanSignup, 17, 24, SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE)
+        ss.setSpan(StyleSpan(Typeface.BOLD), 17, 24, SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE)
+        ss.setSpan(ForegroundColorSpan(Color.parseColor("#3C9C3D")), 17, 24, SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE)
         noAccountText.text = ss
         noAccountText.movementMethod = LinkMovementMethod.getInstance()
 
         return view
-    }
-
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment RegisterFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            RegisterFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
     }
 }
