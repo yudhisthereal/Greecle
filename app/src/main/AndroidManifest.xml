@@ -39,7 +39,7 @@
             android:name=".RewardActivity"
             android:exported="true" />
         <activity
-            android:name=".MainActivity"
+            android:name=".LoginRegisterActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
