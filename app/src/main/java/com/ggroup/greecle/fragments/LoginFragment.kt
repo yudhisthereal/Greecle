@@ -1,6 +1,5 @@
 package com.ggroup.greecle.fragments
 
-import android.content.Intent
 import android.graphics.Color
 import android.graphics.Typeface
 import android.os.Bundle
@@ -16,12 +15,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.appcompat.widget.AppCompatButton
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.ggroup.greecle.R
-import com.ggroup.greecle.activities.ForgotPasswordActivity
-import com.ggroup.greecle.activities.MapsActivity
 import kotlin.math.roundToInt
 
 
@@ -72,17 +69,8 @@ class LoginFragment : Fragment() {
 
         val forgotPass: TextView = view.findViewById(R.id.forgotPassword)
         forgotPass.setOnClickListener{
-            val intent = Intent(activity, ForgotPasswordActivity::class.java)
-            activity?.startActivity(intent)
+            Toast.makeText(activity, "Forgot Pass", Toast.LENGTH_SHORT).show()
         }
-
-        val loginButton: AppCompatButton = view.findViewById(R.id.buttonLogin)
-        loginButton.setOnClickListener{
-            val intent = Intent(activity, MapsActivity::class.java)
-            activity?.startActivity(intent)
-            activity?.finish()
-        }
-
         return view
     }
 }
