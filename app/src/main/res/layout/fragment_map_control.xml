@@ -1,16 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragments.MapControlFragment">
+    tools:context=".fragments.MapControlFragment"
+    android:padding="16dp">
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:contentDescription="back button"
+        android:src="@drawable/back_button_black"
+        app:layout_constraintEnd_toStartOf="@+id/searchBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/searchBar"
+        android:elevation="16dp"
+        android:outlineSpotShadowColor="@color/black"
+        android:layout_width="256dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/search_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/stationsList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/stationsList" >
-        
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
     </androidx.recyclerview.widget.RecyclerView>
 
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
