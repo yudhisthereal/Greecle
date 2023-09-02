@@ -1,10 +1,12 @@
-package com.ggroup.greecle
+package com.ggroup.greecle.adapters
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
+import com.ggroup.greecle.R
+import com.ggroup.greecle.models.TopicItem
 
 class TopicItemAdapter(private val topicItemList: List<TopicItem>) :
     RecyclerView.Adapter<TopicItemAdapter.TopicItemViewHolder>() {

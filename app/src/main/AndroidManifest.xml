@@ -12,43 +12,43 @@
         android:theme="@style/Theme.Greecle"
         tools:targetApi="31">
         <activity
-            android:name=".PassResetEmailSentActivity"
+            android:name=".activities.PassResetEmailSentActivity"
             android:exported="false" />
         <activity
-            android:name=".PasswordResetSuccessActivity"
+            android:name=".activities.PasswordResetSuccessActivity"
             android:exported="false" />
         <activity
-            android:name=".UserLocationActivity"
+            android:name=".activities.UserLocationActivity"
             android:exported="false" />
         <activity
-            android:name=".ForgotPasswordActivity"
+            android:name=".activities.ForgotPasswordActivity"
             android:exported="false" />
         <activity
-            android:name=".DetailRewardActivity"
+            android:name=".activities.DetailRewardActivity"
             android:exported="false" />
         <activity
-            android:name=".HistoryActivity"
+            android:name=".activities.HistoryActivity"
             android:exported="true" />
         <activity
-            android:name=".NotificationActivity"
+            android:name=".activities.NotificationActivity"
             android:exported="false" />
         <activity
-            android:name=".RegistrationSuccessActivity"
+            android:name=".activities.RegistrationSuccessActivity"
             android:exported="false" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".activities.HomeActivity"
             android:exported="true" />
         <activity
-            android:name=".TopicDetailActivity"
+            android:name=".activities.TopicDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".ArticleDetailActivity"
+            android:name=".activities.ArticleDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".RewardActivity"
+            android:name=".activities.RewardActivity"
             android:exported="true" />
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

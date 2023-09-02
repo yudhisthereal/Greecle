@@ -1,11 +1,12 @@
-package com.ggroup.greecle
+package com.ggroup.greecle.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.ggroup.greecle.R
 
-class UserLocationActivity : AppCompatActivity() {
+class NotificationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_user_location)
+        setContentView(R.layout.activity_notification)
     }
 }

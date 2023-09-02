@@ -1,4 +1,4 @@
-package com.ggroup.greecle
+package com.ggroup.greecle.fragments
 
 import android.graphics.Color
 import android.graphics.Typeface
@@ -10,7 +10,6 @@ import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
 import android.text.style.ForegroundColorSpan
 import android.text.style.StyleSpan
-import android.text.style.UnderlineSpan
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -19,8 +18,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.constraintlayout.widget.ConstraintLayout
+import com.ggroup.greecle.R
 import kotlin.math.roundToInt
-import kotlin.math.sign
 
 
 /**

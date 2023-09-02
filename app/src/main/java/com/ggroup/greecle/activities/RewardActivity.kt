@@ -1,4 +1,4 @@
-package com.ggroup.greecle
+package com.ggroup.greecle.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,6 +6,9 @@ import android.os.Bundle
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.ggroup.greecle.R
+import com.ggroup.greecle.models.Voucher
+import com.ggroup.greecle.adapters.VoucherAdapter
 
 class RewardActivity : AppCompatActivity() {
 
@@ -48,7 +51,7 @@ class RewardActivity : AppCompatActivity() {
 
         points = findViewById(R.id.constraintLayout11)
         points.setOnClickListener {
-            val intent = Intent(this,DetailRewardActivity::class.java)
+            val intent = Intent(this, DetailRewardActivity::class.java)
             startActivity(intent)
         }
         init()

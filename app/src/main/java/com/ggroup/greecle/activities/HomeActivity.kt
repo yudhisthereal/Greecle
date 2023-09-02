@@ -1,4 +1,4 @@
-package com.ggroup.greecle
+package com.ggroup.greecle.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +8,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SnapHelper
+import com.ggroup.greecle.*
+import com.ggroup.greecle.adapters.ItemAdapter
+import com.ggroup.greecle.adapters.NewsAdapter
+import com.ggroup.greecle.adapters.TopicItemAdapter
+import com.ggroup.greecle.models.Item
+import com.ggroup.greecle.models.News
+import com.ggroup.greecle.models.TopicItem
 
 class HomeActivity : AppCompatActivity() {
 
@@ -31,7 +38,7 @@ class HomeActivity : AppCompatActivity() {
 
         notif = findViewById(R.id.notif)
         notif.setOnClickListener {
-            val intent = Intent(this,NotificationActivity::class.java)
+            val intent = Intent(this, NotificationActivity::class.java)
             startActivity(intent)
         }
         init()
@@ -91,14 +98,23 @@ class HomeActivity : AppCompatActivity() {
         topicItemList.add(TopicItem(R.drawable._d_fantasy_forest_background__1_))
         topicItemList.add(TopicItem(R.drawable._d_fantasy_forest_background))
 
-        newsList.add(News(R.drawable.jungle_forest_view_tropical_trees_generative_ai,
+        newsList.add(
+            News(
+                R.drawable.jungle_forest_view_tropical_trees_generative_ai,
             "World Environment Day",
-            "World Environment Day is an annual global event promoting environmental awareness."))
-        newsList.add(News(R.drawable.jungle_forest_view_tropical_trees_generative_ai,
+            "World Environment Day is an annual global event promoting environmental awareness.")
+        )
+        newsList.add(
+            News(
+                R.drawable.jungle_forest_view_tropical_trees_generative_ai,
             "World Environment Day",
-            "World Environment Day is an annual global event promoting environmental awareness."))
-        newsList.add(News(R.drawable.jungle_forest_view_tropical_trees_generative_ai,
+            "World Environment Day is an annual global event promoting environmental awareness.")
+        )
+        newsList.add(
+            News(
+                R.drawable.jungle_forest_view_tropical_trees_generative_ai,
             "World Environment Day",
-            "World Environment Day is an annual global event promoting environmental awareness."))
+            "World Environment Day is an annual global event promoting environmental awareness.")
+        )
     }
 }

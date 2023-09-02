@@ -1,4 +1,4 @@
-package com.ggroup.greecle
+package com.ggroup.greecle.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.ggroup.greecle.models.News
+import com.ggroup.greecle.R
 
 class NewsAdapter(private val newsList: List<News>) :
     RecyclerView.Adapter<NewsAdapter.NewsViewHolder>(){
@@ -23,7 +25,7 @@ class NewsAdapter(private val newsList: List<News>) :
         return NewsViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: NewsAdapter.NewsViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
         val newsItem = newsList[position]
         holder.newsImageView.setImageResource(newsItem.newsImage)
 
