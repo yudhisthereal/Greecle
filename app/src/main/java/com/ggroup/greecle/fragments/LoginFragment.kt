@@ -21,6 +21,7 @@ import androidx.appcompat.widget.AppCompatButton
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.ggroup.greecle.R
 import com.ggroup.greecle.activities.ForgotPasswordActivity
+import com.ggroup.greecle.activities.HomeActivity
 import com.ggroup.greecle.activities.MapsActivity
 import kotlin.math.roundToInt
 
@@ -82,7 +83,6 @@ class LoginFragment : Fragment() {
             activity?.startActivity(intent)
             activity?.finish()
         }
-
         return view
     }
 }
