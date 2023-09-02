@@ -4,7 +4,8 @@ import android.location.Location
 import android.location.LocationManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import androidx.appcompat.widget.SearchView
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ggroup.greecle.R
@@ -67,7 +68,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         location5.longitude = 99.349678
 
         stationCoords = arrayOf(location1, location2, location3, location4, location5)
-
     }
 
     /**
@@ -81,10 +81,23 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
      */
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
+        setupStations()
+        setupRecyclerView()
+        setupSearchFunction()
+        setupClickListeners()
+    }
 
-        val controls: MapControlFragment = supportFragmentManager
-            .findFragmentById(R.id.mapControls) as MapControlFragment
+    private fun setupClickListeners() {
+        val adapter = stationRecyclerView.adapter as StationAdapter
+        adapter.onVisitClick = {
+            Toast.makeText(this, "Visit $it", Toast.LENGTH_SHORT).show()
+        }
+        adapter.onItemClick = {
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(it, 16.0f))
+        }
+    }
 
+    private fun setupStations() {
         stationsList = arrayListOf()
 
         for (i in stationAvailabilities.indices) {
@@ -94,14 +107,61 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             val station = Station(stationNames[i], stationCoords[i], stationAvailabilities[i])
             stationsList.add(station)
         }
+        val zoomLevel = 16.0f
+        val position = LatLng(stationCoords[0].latitude, stationCoords[0].longitude)
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(position, zoomLevel))
+    }
 
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(LatLng(stationCoords[0].latitude, stationCoords[0].longitude)))
-
+    private fun setupRecyclerView() {
         stationRecyclerView = findViewById(R.id.stationsList)
         stationRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         stationRecyclerView.setHasFixedSize(true)
         stationRecyclerView.adapter = StationAdapter(stationsList)
-        Log.d("RecyclerView", "Recycler View's adapter attached")
+    }
 
+    private fun setupSearchFunction() {
+        // SEARCH STATION FEATURE SETUP
+
+        val searchBar = binding.mapControls.findViewById<SearchView>(R.id.searchBar)
+
+        searchBar.setOnCloseListener {
+            if (searchBar.query.isEmpty()) {
+                val adapter = stationRecyclerView.adapter as StationAdapter
+                adapter.setFilteredList(stationsList)
+            }
+            false
+        }
+
+        searchBar.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                val filteredList = arrayListOf<Station>()
+                if (query!!.isNotEmpty()) {
+                    for (item in stationsList) {
+                        if (item.stationName!!.contains(query)) {
+                            filteredList.add(item)
+                        }
+                    }
+
+                    if (filteredList.isEmpty()) {
+                        Toast.makeText(this@MapsActivity, "Station Not Found", Toast.LENGTH_LONG)
+                            .show()
+                    } else {
+                        val adapter = stationRecyclerView.adapter as StationAdapter
+                        adapter.setFilteredList(filteredList)
+                        if (filteredList.size == 1) {
+                            val coord = filteredList[0].stationCoordinate
+                            val newLatLng = LatLng(coord.latitude, coord.longitude)
+                            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(newLatLng, 16.0f))
+                        }
+                    }
+
+                }
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                return false
+            }
+        })
     }
 }
