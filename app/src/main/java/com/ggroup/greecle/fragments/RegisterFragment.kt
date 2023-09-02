@@ -1,6 +1,5 @@
-package com.ggroup.greecle
+package com.ggroup.greecle.fragments
 
-import android.content.Intent
 import android.graphics.Color
 import android.graphics.Typeface
 import android.os.Bundle
@@ -11,28 +10,24 @@ import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
 import android.text.style.ForegroundColorSpan
 import android.text.style.StyleSpan
-import android.text.style.UnderlineSpan
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.constraintlayout.widget.ConstraintLayout
+import com.ggroup.greecle.R
 import kotlin.math.roundToInt
-import kotlin.math.sign
 
 
 /**
  * A simple [Fragment] subclass.
- * Use the [LoginFragment.newInstance] factory method to
+ * Use the [RegisterFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class LoginFragment : Fragment() {
+class RegisterFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
     }
 
     override fun onCreateView(
@@ -40,21 +35,22 @@ class LoginFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view: View = inflater.inflate(R.layout.fragment_login, container, false)
-        val noAccountText: TextView = view.findViewById(R.id.signUp)
+        val view: View = inflater.inflate(R.layout.fragment_register, container, false)
+        val noAccountText: TextView = view.findViewById(R.id.signIn)
 
-        val text = "No Account? Sign Up"
+        val text = "Have an Account? Sign In"
         var ss = SpannableStringBuilder(text)
 
         val clickableSpanSignup: ClickableSpan = object : ClickableSpan() {
             override fun onClick(p0: View) {
-                val signupFragment = RegisterFragment()
+                val signupFragment = LoginFragment()
                 val transaction = fragmentManager?.beginTransaction()
                 transaction?.replace(R.id.fragmentContainerView, signupFragment)?.commit()
 
                 val rootLayout = activity?.findViewById<ConstraintLayout>(R.id.rootMain)
-                val paddingValue: Int = (24 * resources.displayMetrics.density).roundToInt()
-                rootLayout?.setPadding(paddingValue, paddingValue/2, paddingValue, paddingValue/2)
+                val paddingHorizontal = (24 * resources.displayMetrics.density).roundToInt()
+                val paddingVertical = (64 * resources.displayMetrics.density).roundToInt()
+                rootLayout?.setPadding(paddingHorizontal, paddingVertical, paddingHorizontal, paddingVertical)
             }
 
             override fun updateDrawState(ds: TextPaint) {
@@ -63,17 +59,11 @@ class LoginFragment : Fragment() {
             }
         }
 
-        ss.setSpan(clickableSpanSignup, 12, 19, SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE)
-        ss.setSpan(StyleSpan(Typeface.BOLD), 12, 19, SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE)
-        ss.setSpan(ForegroundColorSpan(Color.parseColor("#3C9C3D")), 12, 19, SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE)
+        ss.setSpan(clickableSpanSignup, 17, 24, SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE)
+        ss.setSpan(StyleSpan(Typeface.BOLD), 17, 24, SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE)
+        ss.setSpan(ForegroundColorSpan(Color.parseColor("#3C9C3D")), 17, 24, SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE)
         noAccountText.text = ss
         noAccountText.movementMethod = LinkMovementMethod.getInstance()
-
-        val forgotPass: TextView = view.findViewById(R.id.forgotPassword)
-        forgotPass.setOnClickListener{
-            val intent = Intent(activity, ForgotPasswordActivity::class.java)
-            activity?.startActivity(intent)
-        }
 
         return view
     }

@@ -5,7 +5,7 @@
     android:id="@+id/frameLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SendEmailFragment"
+    tools:context=".fragments.SendEmailFragment"
     android:background="@drawable/rounded_box_background"
     android:padding="24dp">
 

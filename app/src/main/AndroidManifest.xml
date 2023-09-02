@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -11,35 +15,44 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Greecle"
         tools:targetApi="31">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDjyaM-DNAUj4S1NeA4YKlll0TJ5gG_JVE" />
+
         <activity
-            android:name=".PassResetEmailSentActivity"
+            android:name=".activities.MapsActivity"
+            android:exported="false"
+            android:label="@string/title_activity_maps" />
+        <activity
+            android:name=".activities.PassResetEmailSentActivity"
             android:exported="false" />
         <activity
-            android:name=".PasswordResetSuccessActivity"
+            android:name=".activities.PasswordResetSuccessActivity"
             android:exported="false" />
         <activity
-            android:name=".UserLocationActivity"
+            android:name=".activities.UserLocationActivity"
             android:exported="false" />
         <activity
-            android:name=".ForgotPasswordActivity"
+            android:name=".activities.ForgotPasswordActivity"
             android:exported="false" />
         <activity
-            android:name=".RegistrationSuccessActivity"
+            android:name=".activities.RegistrationSuccessActivity"
             android:exported="false" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".activities.HomeActivity"
             android:exported="true" />
         <activity
-            android:name=".TopicDetailActivity"
+            android:name=".activities.TopicDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".ArticleDetailActivity"
+            android:name=".activities.ArticleDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".RewardActivity"
+            android:name=".activities.RewardActivity"
             android:exported="true" />
         <activity
-            android:name=".LoginRegisterActivity"
+            android:name=".activities.LoginRegisterActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

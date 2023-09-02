@@ -1,4 +1,4 @@
-package com.ggroup.greecle
+package com.ggroup.greecle.models
 
 import android.os.Parcel
 import android.os.Parcelable
