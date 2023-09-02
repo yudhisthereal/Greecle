@@ -3,6 +3,7 @@ package com.ggroup.greecle.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
@@ -32,9 +33,37 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var newsList: ArrayList<News>
     private lateinit var newsAdapter: NewsAdapter
 
+    private lateinit var home: ImageView
+    private lateinit var history: ImageView
+    private lateinit var map: ImageView
+    private lateinit var reward: ImageView
+    private lateinit var profile: ImageView
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
+
+        home = findViewById(R.id.imageView18)
+        history = findViewById(R.id.imageView19)
+        map = findViewById(R.id.imageView20)
+        reward = findViewById(R.id.imageView21)
+        profile = findViewById(R.id.imageView22)
+
+        home.setOnClickListener {
+            val intent = Intent(this,HomeActivity::class.java)
+            startActivity(intent)
+        }
+
+        history.setOnClickListener {
+            val intent = Intent(this,HistoryActivity::class.java)
+            startActivity(intent)
+        }
+
+        reward.setOnClickListener {
+            val intent = Intent(this,RewardActivity::class.java)
+            startActivity(intent)
+        }
 
         notif = findViewById(R.id.notif)
         notif.setOnClickListener {
