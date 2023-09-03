@@ -46,9 +46,15 @@ class HomeActivity : AppCompatActivity() {
 
         home = findViewById(R.id.imageView18)
         history = findViewById(R.id.imageView19)
-        map = findViewById(R.id.imageView20)
+        map = findViewById(R.id.mapButton)
         reward = findViewById(R.id.imageView21)
         profile = findViewById(R.id.imageView22)
+
+
+        map.setOnClickListener {
+            val intent = Intent(this, MapsActivity::class.java)
+            startActivity(intent)
+        }
 
         home.setOnClickListener {
             val intent = Intent(this,HomeActivity::class.java)

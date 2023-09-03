@@ -1,9 +1,11 @@
 package com.ggroup.greecle.activities
 
+import android.content.Intent
 import android.location.Location
 import android.location.LocationManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageButton
 import androidx.appcompat.widget.SearchView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -94,6 +96,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         }
         adapter.onItemClick = {
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(it, 16.0f))
+        }
+
+        val backBtn = binding.mapControls.findViewById<ImageButton>(R.id.mapBackButton)
+        backBtn.setOnClickListener {
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
         }
     }
 

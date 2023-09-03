@@ -79,7 +79,7 @@ class LoginFragment : Fragment() {
 
         val loginButton: AppCompatButton = view.findViewById(R.id.buttonLogin)
         loginButton.setOnClickListener{
-            val intent = Intent(activity, MapsActivity::class.java)
+            val intent = Intent(activity, HomeActivity::class.java)
             activity?.startActivity(intent)
             activity?.finish()
         }

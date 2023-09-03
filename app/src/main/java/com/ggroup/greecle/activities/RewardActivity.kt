@@ -71,8 +71,8 @@ class RewardActivity : AppCompatActivity() {
 
     private fun addDataToList(){
         voucherList.add(Voucher(R.drawable.background_voucher,40))
-        voucherList.add(Voucher(R.drawable.voucher2,40))
-        voucherList.add(Voucher(R.drawable.voucher3,40))
+//        voucherList.add(Voucher(R.drawable.voucher2,40))
+//        voucherList.add(Voucher(R.drawable.voucher3,40))
         voucherList.add(Voucher(R.drawable.background_voucher,40))
     }
 
