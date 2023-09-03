@@ -4,10 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.ggroup.greecle.R
 
-class LoginRegisterActivity : AppCompatActivity() {
+class NotificationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        supportActionBar?.hide()
-        setContentView(R.layout.activity_login_register)
+        setContentView(R.layout.activity_notification)
     }
 }
